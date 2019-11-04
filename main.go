@@ -29,7 +29,9 @@ func extract(filepath string) ([]string) {
 	for scanner.Scan() {
 		word := scanner.Text()
 		trimmedWord := strings.Trim(word, ",.—;'\"_)( ")
-		words = append(words, trimmedWord)
+		if trimmedWord == strings.Title(trimmedWord) {
+			words = append(words, trimmedWord)
+		}
 	}
 
 	return words
@@ -60,7 +62,7 @@ func count(words []string) ([]CountedWord, error) {
 		}
 	}
 
-	wordCountMap, err := filter(wordCountMap, 800)
+	wordCountMap, err := filter(wordCountMap, 10)
 	if err != nil {
 		return nil, err
 	}

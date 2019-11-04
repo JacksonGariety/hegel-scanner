@@ -62,7 +62,7 @@ func count(words []string) ([]CountedWord, error) {
 		}
 	}
 
-	wordCountMap, err := filter(wordCountMap, 10)
+	wordCountMap, err := filter(wordCountMap, 100)
 	if err != nil {
 		return nil, err
 	}

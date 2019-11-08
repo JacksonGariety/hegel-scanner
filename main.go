@@ -28,7 +28,7 @@ func extract(filepath string) ([]string) {
 	var words []string
 	for scanner.Scan() {
 		word := scanner.Text()
-		trimmedWord := strings.Trim(word, ",.—;'\"_)( ")
+		trimmedWord := strings.Trim(word, ":,.—;-'\"_)( ")
 		if trimmedWord == strings.Title(trimmedWord) {
 			words = append(words, trimmedWord)
 		}
@@ -96,9 +96,11 @@ func dump(countedWords []CountedWord) {
 
 func main() {
 	filepaths := []string{
-		"./resources/logik-band-eins.txt",
+		// "./resources/logik-band-eins.txt",
 		// "./resources/logik-band-zwei.txt",
 		// "./resources/phänomenologie.txt",
+		"./resources/erste-kritik.txt",
+		// "./resources/sein-und-zeit.txt",
 	}
 
 	var hegelianWords []string
